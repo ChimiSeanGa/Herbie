@@ -16,12 +16,18 @@ enum Action {
    right
 };
 
-// Data structure to hold state information
+/* Data structure to hold state information.
+
+   A state consists of a signle action and the number of repetitions
+   for the action.
+*/ 
 struct state {
    int action;
    int loop;
 };
 
+
+// The controller class controls the motion of the car
 class Controller {
 
 state *state_list;

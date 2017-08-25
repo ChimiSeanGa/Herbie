@@ -1,21 +1,27 @@
 #include "controller.h"
 
+// Constructor for Controller class
 Controller::Controller(Car *car, state* state_list, int num_states) {
    this->car = car;
    this->state_list = state_list;
    this->num_states = num_states;
 }
 
+// Performs the next available action in the state list
 void Controller::next_action() {
+   // If there are no more actions, stop the car and exit the program
    if (cur_state >= num_states) {
       make_action(Action::stop);
       exit(EXIT_SUCCESS);
    }
 
+   // Retrieve the data for the current state
    state *st = &state_list[cur_state];
 
+   // Perform the current action
    make_action(st->action);
 
+   // Check if current state is finished
    if (st->loop == 0)
       cur_state++;
    else

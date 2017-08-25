@@ -9,6 +9,9 @@
 #define IO_LEFT      6
 #define IO_RIGHT     7
 
+/* The car class is the direct connection to the hardware components.
+   Any actual motion is controlled instead by the Controller class.
+*/
 class Car {
 public:
    // Initialize IO ports and variables
